@@ -3,6 +3,7 @@ package com.giyeon.redis.service;
 
 import com.giyeon.redis.domain.Board;
 import com.giyeon.redis.repository.BoardRepository;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
@@ -18,6 +19,7 @@ public class BoardService {
         this.boardRepository = boardRepository;
     }
 
+    @Cacheable(cacheNames = "getBoards", key = "'boards:page:'+#page+':size'+#size",cacheManager = "boardCacheManager")
     public List<Board> getBoards(int page, int size) {
         Pageable pageable = PageRequest.of(page - 1, size);
         Page<Board> pageOfBoards = boardRepository.findAllByOrderByCreatedAtDesc(pageable);

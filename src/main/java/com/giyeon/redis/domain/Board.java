@@ -40,10 +40,6 @@ public class Board {
         return content;
     }
 
-    public LocalDateTime getCreated() {
-        return createdAt;
-    }
-
     public LocalDateTime getCreatedAt() {
         return createdAt;
     }
