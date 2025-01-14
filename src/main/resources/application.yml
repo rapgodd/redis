@@ -29,4 +29,3 @@ spring:
     url: jdbc:mysql://test-server.cxoewcs8qela.ap-northeast-2.rds.amazonaws.com:3306/mydb
     username: admin
     password: password
-    driver-class-name: com.mysql.cj.jdbc.Driver
